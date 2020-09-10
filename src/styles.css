@@ -1,3 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~bootstrap/dist/css/bootstrap.css"
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* 
+.bg-success{
+  background-color: blue;
+} */
+
+
+body{
+  padding-top: 80px;
+
+}
+
+.bg-darkgreen{
+  background-color: #006d77;
+}
+
+.bg-lightgreen{
+  background-color: #83c5be;
+}
+
+.font-bold{
+  font-weight: 700;
+}
