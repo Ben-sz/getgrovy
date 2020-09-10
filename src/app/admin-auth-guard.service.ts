@@ -6,6 +6,7 @@ import { UserService } from './user.service';
 import 'rxjs/add/operator/switchMap';
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { database } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -16,17 +17,18 @@ export class AdminAuthGuard implements CanActivate {
  
   canActivate(): boolean{
       /* todo */
-   /*  this.auth.user$.pipe(map(user  =>  this.userService.get(user.uid)).subscribe(a => console.log('gggg', a)); */
-  /*   this.auth.user$.pipe(map(user  =>  console.log('aaaa', user)));  */
-/*     this.userService.get('4zmNR9Z3qVOctWcMyPnFVu4nFRz1').subscribe( a => console.log(a)) */
-    return true;
-
+     
+    let a;
     
- 
+    this.auth.user$.subscribe(dat => { 
+      console.log('a', dat.uid);
+      this.userService.getIsAdmin(dat.uid).subscribe( adminFlag => a = adminFlag)});
+                          
+    console.log(a);
+    return a;
 
-   
   }
- 
+
 
 
 
