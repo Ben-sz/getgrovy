@@ -50,8 +50,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       {path: 'order-success', component: HomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'admin/products', component: AdminProductsComponent},
-      {path: 'admin/orders', component: AdminOrdersComponent}
-
+      {path: 'admin/orders', component: AdminOrdersComponent},
+      {path: 'my/orders', component: MyOrdersComponent}
     ]),
     NgbModule
   ],
