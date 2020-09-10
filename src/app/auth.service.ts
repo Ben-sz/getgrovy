@@ -12,7 +12,7 @@ export class AuthService {
 
 
   constructor(private afAuth: AngularFireAuth) {
-    this.user$ = afAuth.au
+    this.user$ = afAuth.authState;
   }
   login(){
     this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());

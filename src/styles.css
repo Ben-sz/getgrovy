@@ -21,6 +21,12 @@ body{
   background-color: #EEFCF9;
 }
 
+.btn-lightgreen{
+  background-color: #A8F0E0;
+  border-color: #62E4C8
+
+}
+
 .font-bold{
   font-weight: 700;
 }
