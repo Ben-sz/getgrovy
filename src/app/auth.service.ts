@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { AppUser} from './models/app-user';
 
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -11,9 +12,11 @@ import { ActivatedRoute } from '@angular/router';
 export class AuthService {
   user$ : Observable<firebase.User>;
 
-
   constructor(private afAuth: AngularFireAuth, private route: ActivatedRoute) {
     this.user$ = afAuth.authState;
+
+
+
   }
   login(){
     /* store url for proper redirect */
@@ -21,6 +24,7 @@ export class AuthService {
     localStorage.setItem('returnUrl', returnUrl);
     console.log('aaa',returnUrl);
     this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+
   }
 
   logout(){

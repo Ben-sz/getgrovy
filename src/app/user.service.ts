@@ -16,15 +16,10 @@ export class UserService {
     this.db.object('/users/' + user.uid).update({name: user.displayName, email: user.email})
   }
 
-  get(uid: string){
+  get(uid: string): AngularFireObject<AppUser>{
     
     console.log('getben');
     return this.db.object('/users/' + uid);
   }
 
-
-  getIsAdmin(uid: string){
-    console.log('getben');
-    return this.db.object('/users/' + uid + '/isAdmin').valueChanges();
-  }
 }

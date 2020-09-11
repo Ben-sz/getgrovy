@@ -14,18 +14,25 @@ import { database } from 'firebase';
 export class AdminAuthGuard implements CanActivate {
 
   constructor(private auth: AuthService, private userService: UserService) { }
- 
-  canActivate(): boolean{
-      /* todo */
-     
-    let a;
+
+
+  /* todo  */
+/*   canActivate(): boolean{
+          
+   
+    return true;
+
+  }
+
+ */
+
+  canActivate() : Observable<boolean>{
     
-    this.auth.user$.subscribe(dat => { 
-      console.log('a', dat.uid);
-      this.userService.getIsAdmin(dat.uid).subscribe( adminFlag => a = adminFlag)});
-                          
-    console.log(a);
-    return a;
+    return this.auth.user$
+      .switchMap( user => { 
+              return this.userService.get(user.uid).valueChanges();
+            } )
+            .pipe( map( appUser => appUser.isAdmin));
 
   }
 
