@@ -11,11 +11,14 @@ export class ProductFormComponent implements OnInit {
   categories$
   constructor(categoryService: CategoryService,
     private productService: ProductService) {
-    this.categories$ = categoryService.getCategories();
+    this.categories$ = categoryService.getCategories().snapshotChanges();
+
+    this.categories$.subscribe(h => console.log('hh', h));
    }
 
 
   save(product){
+    console.log(product)
     this.productService.create(product);
   }
 
