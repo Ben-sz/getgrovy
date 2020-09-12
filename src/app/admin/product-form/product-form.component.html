@@ -8,7 +8,7 @@
   </div>
   <div class="form-group">
     <label for="latinName">Latin name</label>
-    <input #latinName="ngModel" ngModel name="latinName" id="latinName" type="text" class="form-control" required>
+    <input #latinName="ngModel" ngModel name="latinName" id="latinName" type="text" class="form-control" required >
     <div class="alert alert-danger" *ngIf="latinName.touched && latinName.invalid">
       Latin name is required.
     </div>
@@ -19,11 +19,12 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Ft</span>
       </div>
-    <input #price="ngModel" ngModel name="price" id="price" type="number" class="form-control" required>
+    <input #price="ngModel" ngModel name="price" id="price" type="number" class="form-control" required [min]="500">
   </div>
   </div>
   <div class="alert alert-danger" *ngIf="price.touched && title.invalid">
-    Price is required.
+    <div *ngIf="price.errors.required"> Price is required. </div>
+    <div *ngIf="price.errors.min"> Price should be 500 or higher. </div>
   </div>
 
   <div class="form-group">
@@ -41,10 +42,12 @@
   
    <div class="form-group">
     <label for="imgUrl">imgUrl</label>
-    <input #imageUrl="ngModel" ngModel name="imageUrl" id="imgUrl" type="text" class="form-control" required>
+    <input #imageUrl="ngModel" ngModel name="imageUrl" id="imgUrl" type="text" class="form-control" required url>
   </div>
   <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
-    Image URL is required.
+    <div *ngIf="imageUrl.errors.required">Image URL is required.</div> 
+    <div *ngIf="imageUrl.errors.url">Enter valid Url.</div> 
   </div>
+  
   <button class="btn btn-primary">Save</button>
 </form>
