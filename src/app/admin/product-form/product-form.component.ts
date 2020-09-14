@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/category.service';
 import { ProductService } from 'src/app/product.service';
 import 'rxjs/add/operator/take';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-product-form',
@@ -19,7 +21,11 @@ export class ProductFormComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductService,
     private router: Router) {
-    this.categories$ = categoryService.getCategories().snapshotChanges();
+      /* pipe to get key and value */
+      this.categories$ = categoryService.getCategories().snapshotChanges().pipe(
+        map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
+      }))));
+
 
     this.id = this.route.snapshot.paramMap.get('id');
 

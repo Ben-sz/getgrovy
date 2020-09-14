@@ -10,7 +10,7 @@ import {Product} from '../../models/products';
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.css']
 })
-export class AdminProductsComponent implements OnInit, OnDestroy{
+export class AdminProductsComponent implements OnInit{
   products$;
   products: Product[];
   filteredProducts: Product[];
@@ -21,15 +21,15 @@ export class AdminProductsComponent implements OnInit, OnDestroy{
       map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
     }))));
 
-    this.products$.subscribe( dat => {this.filteredProducts = this.products = dat; console.log('gg',typeof(this.products), typeof(this.products$))});
+    this.products$.subscribe( dat => {this.filteredProducts = this.products = dat});
    }
 
   ngOnInit(): void {
   }
 
-  ngOnDestroy(){
+ /*  ngOnDestroy(){
     this.subscription.unsubscribe();
-  }
+  } */
 
   filter(query: string){
     console.log(query);

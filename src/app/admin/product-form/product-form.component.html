@@ -36,7 +36,7 @@
         <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
           <option value=""></option>
           <option *ngFor="let c of categories$ | async" [value]="c.key">
-            {{c.name}}  {{c.key}} 
+            {{c.name}} <!--  {{c.key}}  -->
           </option>
           </select>
           <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
@@ -58,7 +58,7 @@
     </form>
   </div>
   <div class="col-md-6">
-    <div class="card" style="width: 20rem;">
+    <div *ngIf="product.title" class="card" style="width: 20rem;">
       <img [src]="product.imageUrl" class="card-img-top">
       <div class="card-body">
         <h4 class="card-title">{{ product.title }}</h4>
