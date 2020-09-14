@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { map } from 'rxjs/operators';
-import { CategoryService } from '../category.service';
+
 import { ActivatedRoute } from '@angular/router';
 import {Product} from './../models/products';
 
@@ -15,12 +15,11 @@ export class ProductsComponent {
   products$;
   products: Product[] = [];
   filteredProducts: Product[]= [];
-  categories$;
   category: string;
 
   constructor( 
     productService: ProductService,
-    categoryService: CategoryService,
+    
     route: ActivatedRoute) {
 
     this.products$ = productService.getAll().snapshotChanges().pipe(
@@ -28,10 +27,6 @@ export class ProductsComponent {
     }))));
     this.products$.subscribe( dat => {this.filteredProducts = this.products = dat});
 
-    this.categories$ = categoryService.getAll().snapshotChanges().pipe(
-      map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
-    }))));
-    this.categories$.subscribe(a=>{ console.log("iiii",a.key)   });
 
     
      route.queryParamMap.subscribe(params => {
