@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { map } from 'rxjs/operators';
 import { CategoryService } from '../category.service';
+import { ActivatedRoute } from '@angular/router';
+import {Product} from './../models/products';
+
 
 @Component({
   selector: 'app-products',
@@ -10,17 +13,36 @@ import { CategoryService } from '../category.service';
 })
 export class ProductsComponent {
   products$;
-  categories$
+  products: Product[] = [];
+  filteredProducts: Product[]= [];
+  categories$;
+  category: string;
 
-  constructor( productService: ProductService, categoryService: CategoryService) {
+  constructor( 
+    productService: ProductService,
+    categoryService: CategoryService,
+    route: ActivatedRoute) {
+
     this.products$ = productService.getAll().snapshotChanges().pipe(
       map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
     }))));
+    this.products$.subscribe( dat => {this.filteredProducts = this.products = dat;  console.log("aa", this.filteredProducts)});
+
+
+
 
     this.categories$ = categoryService.getAll().snapshotChanges().pipe(
       map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
     }))));
+    this.categories$.subscribe(a=>{ console.log("iiii",a.key)   });
 
+    
+     route.queryParamMap.subscribe(params => {
+      this.category  = params.get('category');
+      this.filteredProducts = (this.category) ?
+       this.products.filter(p => p.category === this.category):
+                this.products;
+    }); 
    }
 
    
