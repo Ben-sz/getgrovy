@@ -22,7 +22,7 @@ export class ProductFormComponent implements OnInit {
     private productService: ProductService,
     private router: Router) {
       /* pipe to get key and value */
-      this.categories$ = categoryService.getCategories().snapshotChanges().pipe(
+      this.categories$ = categoryService.getAll().snapshotChanges().pipe(
         map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
       }))));
 
