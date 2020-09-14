@@ -13,7 +13,7 @@ import {Product} from '../../models/products';
 export class AdminProductsComponent implements OnInit, OnDestroy{
   products$;
   products: Product[];
-  filteredProducts: any[];
+  filteredProducts: Product[];
   subscription: Subscription;
 
   constructor(private productService: ProductService) {
