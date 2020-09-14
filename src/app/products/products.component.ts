@@ -26,10 +26,7 @@ export class ProductsComponent {
     this.products$ = productService.getAll().snapshotChanges().pipe(
       map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
     }))));
-    this.products$.subscribe( dat => {this.filteredProducts = this.products = dat;  console.log("aa", this.filteredProducts)});
-
-
-
+    this.products$.subscribe( dat => {this.filteredProducts = this.products = dat});
 
     this.categories$ = categoryService.getAll().snapshotChanges().pipe(
       map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
