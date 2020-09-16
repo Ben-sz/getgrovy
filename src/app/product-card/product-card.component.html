@@ -9,8 +9,9 @@
         <p class="card-text align-text-bottom"> {{ product.price | currency:'Ft ':"code"}} </p>
     </div>
 
-    <div class="card-footer">
-      <button *ngIf="showActions" (click)="addtoCart(product)" class="btn btn-primary btn-block">Add to Cart</button>
+    <div *ngIf="showActions" class="card-footer">
+      <button (click)="addtoCart(product)" class="btn btn-primary btn-block">Add to Cart</button>
+    <div>{{ getQuantity()}}</div>
     </div>
 
 </div>

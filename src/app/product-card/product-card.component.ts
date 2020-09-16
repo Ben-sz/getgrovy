@@ -11,7 +11,7 @@ export class ProductCardComponent{
 
   @Input ('product') product: Product;
   @Input ('show-action') showActions = true;
-
+  @Input('shopping-cart') shoppingCart;
 
   constructor(private cartService: ShoppingCartService ) { }
 
@@ -21,4 +21,13 @@ export class ProductCardComponent{
     
   }
 
+
+  getQuantity(){
+    if (!this.shoppingCart.items[this.product.key]) return 0;
+    console.log('a', this.shoppingCart.items[this.product.key], this.product.key);
+    let item = this.shoppingCart.items[this.product.key];
+    console.log(item.quantity);
+    return item.quantity
+
+  }
 }
