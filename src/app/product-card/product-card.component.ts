@@ -23,10 +23,10 @@ export class ProductCardComponent{
 
 
   getQuantity(){
-    if (!this.shoppingCart.items[this.product.key]) return 0;
-    console.log('a', this.shoppingCart.items[this.product.key], this.product.key);
+    /* if there is no shopping cart or no id with specific id return 0 */
+    if (!this.shoppingCart || !this.shoppingCart.items[this.product.key]) return 0;
+
     let item = this.shoppingCart.items[this.product.key];
-    console.log(item.quantity);
     return item.quantity
 
   }
