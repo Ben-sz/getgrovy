@@ -30,17 +30,22 @@ export class ShoppingCartService {
     return result.key;
   }
 
+  private getItem(cartId: string, productId: string){
+    return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
+  }
+
 
   async addToCart(product: Product){
     let cartId = await this.getOrCreateCartId();
-    let item$ = this.db.object('/shopping-carts/' + cartId + '/items/' + product.key)
+    let item$ = this.getItem(cartId, product.key);
     
-
     item$.valueChanges().take(1).subscribe((item: any ) => {
-  if (item == null) item$.set({ product: product, quantity: 1});
+    if (item == null) item$.set({ product: product, quantity: 1});
       else item$.update({ product: product,quantity: item.quantity + 1});
 
       console.log('subs', item)
     });
   }
 }
+
+
