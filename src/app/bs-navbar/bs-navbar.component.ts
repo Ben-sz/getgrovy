@@ -30,7 +30,7 @@ export class BsNavbarComponent implements OnInit{
       /* to avoid infinite loop */
       this.auth.appUser$.subscribe(appUser => this.appUser = appUser );
       this.cart$ = await (await this.shoppingCartService.getCart());
-      this.cart$.subscribe(a => console.log(a));
+      
 
   }
 
