@@ -33,6 +33,7 @@ export class ShoppingCart {
   getQuantity( product: Product){
     /* if there is no shopping cart or no id with specific id return 0 */
     let item = this.itemsMap[product.key];
+    console.log("uu", product)
     return item ? item.quantity : 0;
   }
 }
