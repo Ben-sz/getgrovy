@@ -1,10 +1,9 @@
-<p>product-quantity works!</p>
 <div class="row no-gutters">
   <div class="col-2">
     <button (click) = "removeFromCart()" class="btn btn-secondary btn-block">-</button>
   </div>
   <div class="col text-center">
-    {{shoppingCart.getQuantity}} in cart
+    {{shoppingCart.getQuantity(product)}} in cart
   </div>
   <div class="col-2">
     <button (click) = "addtoCart()"  class="btn btn-secondary btn-block">+</button>
