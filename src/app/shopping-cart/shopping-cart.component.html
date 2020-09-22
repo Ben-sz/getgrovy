@@ -20,5 +20,12 @@
       <td>{{ item.totalPrice| currency: 'Ft ' }} </td>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>{{ cart.totalPrice| currency: 'Ft '  }}</th>
+    </tr>
+  </tfoot>
 </table>
 </ng-container>
