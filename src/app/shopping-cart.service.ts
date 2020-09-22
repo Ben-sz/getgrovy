@@ -22,15 +22,10 @@ export class ShoppingCartService {
     });
   }
 
-/*   async getCart(): Promise<AngularFireObject<ShoppingCart>>{
-    let cartId = await this.getOrCreateCartId();
-    return this.db.object('/shopping-carts/' + cartId);
-  }
- */
   async getCart(): Promise<Observable<ShoppingCart>>{
     let cartId = await this.getOrCreateCartId();
     /* console.log("ezacartid", cartId); */
-    return this.db.object('/shopping-carts/' + cartId).valueChanges().map((x: ShoppingCart) => new ShoppingCart(x.items));
+    return this.db.object('/shopping-carts/' + cartId).valueChanges().map((x: any) => new ShoppingCart(x.items));
   }
 
 
