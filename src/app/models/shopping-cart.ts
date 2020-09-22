@@ -4,10 +4,13 @@ export class ShoppingCart {
   items: ShoppingCartItem[] = [];
 
   constructor(public itemsMap: { [productId: string]: ShoppingCartItem}){
-    console.log("ez az itemsMAp", itemsMap);
-    for (let productId in itemsMap)
-    this.items.push(itemsMap[productId])
-    console.log("ez az items", this.items);
+    
+    for (let productId in itemsMap){
+      let item = itemsMap[productId];
+    this.items.push(new ShoppingCartItem(item.product, item.quantity));
+  
+  }
+    
   }
 
 
