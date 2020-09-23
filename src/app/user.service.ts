@@ -17,8 +17,6 @@ export class UserService {
   }
 
   get(uid: string): AngularFireObject<AppUser>{
-    
-    console.log('getben');
     return this.db.object('/users/' + uid);
   }
 

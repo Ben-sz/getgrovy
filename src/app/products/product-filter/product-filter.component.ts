@@ -18,7 +18,6 @@ export class ProductFilterComponent implements OnInit {
     this.categories$ = categoryService.getAll().snapshotChanges().pipe(
       map(res => res.map(c => ({ key: c.payload.key, ...c.payload.val() as {}   
     }))));
-    this.categories$.subscribe(a=>{ console.log("iiii",a.key)   });
 
    }
 

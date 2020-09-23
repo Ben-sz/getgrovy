@@ -32,7 +32,6 @@ export class AdminProductsComponent implements OnInit{
   } */
 
   filter(query: string){
-    console.log(query);
     this.filteredProducts = (query) ?
     this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) :
     this.products;

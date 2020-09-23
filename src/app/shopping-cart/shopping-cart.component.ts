@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../shopping-cart.service';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from '../models/shopping-cart';
+import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 
 
 @Component({
@@ -16,7 +17,10 @@ export class ShoppingCartComponent implements OnInit {
 
   async ngOnInit() {
     this.cart$ = await (await this.shoppingCartService.getCart());
-    console.log('cart', this.cart$);
+
   }
 
+  clearCart(){
+    this.shoppingCartService.clearCart();
+  }
 }
