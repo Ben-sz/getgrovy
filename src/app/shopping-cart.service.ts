@@ -62,10 +62,6 @@ export class ShoppingCartService {
     let item$ = this.getItem(cartId, product.key);
     
     item$.valueChanges().take(1).subscribe((item: any ) => {
-      console.log(item)
-
-     
-
 
 
     if (item == null){          item$.set({
