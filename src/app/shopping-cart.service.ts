@@ -6,6 +6,7 @@ import { ShoppingCart } from './models/shopping-cart';
 import { map } from 'rxjs/operators';
 import 'rxjs/add/operator/map'
 import { Observable } from 'rxjs';
+import { ShoppingCartItem } from './models/shopping-cart-item';
 
 
 @Injectable({
@@ -61,18 +62,27 @@ export class ShoppingCartService {
     let item$ = this.getItem(cartId, product.key);
     
     item$.valueChanges().take(1).subscribe((item: any ) => {
-    if (item == null) item$.set({
+      console.log(item)
+
+     
+
+
+
+    if (item == null){          item$.set({
                                 title: product.title,
                                 imageUrl: product.imageUrl,
                                 price: product.price,
                                 quantity: 1
-                                });
-      else item$.update({
-                        title: product.title,
+                                });}
+    else{ 
+      let quantity = (item.quantity || 0) + change;
+      if (quantity === 0) item$.remove()
+
+      else item$.update({ title: product.title,
                         imageUrl: product.imageUrl,
                         price: product.price,
-                        quantity: item.quantity + change
-                        });
+                        quantity: quantity
+                        });}
     });
   }
 
