@@ -29,6 +29,7 @@ import { AuthGuard } from './auth-guard.service';
 import {UserService} from './user.service';
 import {CategoryService} from './category.service';
 import { ProductService } from './product.service';
+import { OrderService } from './order.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
@@ -82,7 +83,7 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     ]),
     NgbModule
   ],
-  providers: [AuthService, AuthGuard, UserService, AdminAuthGuard, CategoryService, ProductService],
+  providers: [AuthService, AuthGuard, UserService, AdminAuthGuard, CategoryService, ProductService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

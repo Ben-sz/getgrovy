@@ -30,7 +30,7 @@ export class ShoppingCart {
     return count;
   }
 
-  getQuantity( product: Product){
+  getQuantity(product: Product){
     /* if there is no shopping cart or no id with specific id return 0 */
     let item = this.itemsMap[product.key];
 

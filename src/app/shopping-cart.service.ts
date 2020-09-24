@@ -74,7 +74,7 @@ export class ShoppingCartService {
       let quantity = (item.quantity || 0) + change;
       if (quantity === 0) item$.remove()
 
-      else item$.update({ title: product.title,
+      else item$.set({ title: product.title,
                         imageUrl: product.imageUrl,
                         price: product.price,
                         quantity: quantity
