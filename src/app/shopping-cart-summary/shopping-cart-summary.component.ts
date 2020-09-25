@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ShoppingCart } from '../models/shopping-cart';
 
 @Component({
   selector: 'shopping-cart-summary',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartSummaryComponent {
 
-  constructor() { }
+  @Input('cart') cart:ShoppingCart;
+
+  constructor() { } 
 
   
 
