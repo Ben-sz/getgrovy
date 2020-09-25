@@ -13,11 +13,14 @@ export class OrderService {
     let result = await this.db.list('/order').push(order);
     this.shoppingCartService.clearCart();
     return result
-
   }
 
-
-  getOrder() {
-    return this.db.list('/orders');
+  getOrders() {
+    return this.db.list('/order');
   }
+
+  getOrdersByUser(userId: string){
+    return this.db.list('/order', ref => ref.orderByChild('userId').equalTo(userId));
+  }
+
 }
