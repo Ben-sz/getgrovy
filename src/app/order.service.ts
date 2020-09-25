@@ -15,4 +15,9 @@ export class OrderService {
     return result
 
   }
+
+
+  getOrder() {
+    return this.db.list('/orders');
+  }
 }
