@@ -11,5 +11,9 @@
   ],
   "include": [
     "src/**/*.d.ts"
-  ]
+  ],
+  "baseUrl": "./src",
+  "paths": {
+    "shared/*": [ "app/shared/*"]
+  }
 }

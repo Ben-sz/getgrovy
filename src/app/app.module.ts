@@ -1,4 +1,4 @@
-import { environment } from 'src/environments/environment';
+import { environment } from 'environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
@@ -24,13 +24,13 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from './auth.service';
-import { AuthGuard } from './auth-guard.service';
-import {UserService} from './user.service';
-import {CategoryService} from './category.service';
-import { ProductService } from './product.service';
-import { OrderService } from './order.service';
-import { AdminAuthGuard } from './admin-auth-guard.service';
+import { AuthService } from './shared/services/auth.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import {UserService} from './shared/services/user.service';
+import {CategoryService} from './shared/services/category.service';
+import { ProductService } from './shared/services/product.service';
+import { OrderService } from './shared/services/order.service';
+import { AdminAuthGuard } from './shared/services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
