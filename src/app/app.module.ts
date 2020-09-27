@@ -13,10 +13,10 @@ import { AdminOrdersComponent } from '././admin/components/admin-orders/admin-or
 import { AdminProductsComponent } from '././admin/components/admin-products/admin-products.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
+import { BsNavbarComponent } from './core/components/bs-navbar/bs-navbar.component';
 import { CheckOutComponent } from './shopping/components/check-out/check-out.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { LoginComponent } from './core/components/login/login.component';
 import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
 import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
 import { ProductsComponent } from './shopping/components/products/products.component';
@@ -31,19 +31,18 @@ import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopp
 import { SharedModule } from './shared/shared.module'
 import { AdminModule } from './admin/admin.module'
 import { ShoppingModule } from './shopping/shopping.module'
+import { CoreModule } from './core/core.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    BsNavbarComponent,
-    HomeComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AdminModule,
     ShoppingModule,
+    CoreModule,
     FormsModule,
     CustomFormsModule,
     AppRoutingModule,
