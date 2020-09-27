@@ -7,7 +7,9 @@
 {
   "baseUrl": "./src",
   "paths": {
-    "shared/*": [ "app/shared/*"]
+    "shared/*": [ "app/shared/*"],
+    "admin/*": [ "app/admin/*"],
+    "shopping/*": [ "app/shopping/*"]
   },
   "files": [],
   "references": [

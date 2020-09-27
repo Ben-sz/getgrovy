@@ -15,6 +15,7 @@
   "baseUrl": "./src",
   "paths": {
     "shared/*": [ "app/shared/*"],
-    "admin/*": [ "app/admin/*"]
+    "admin/*": [ "app/admin/*"],
+    "shopping/*": [ "app/shopping/*"]
   }
 }
