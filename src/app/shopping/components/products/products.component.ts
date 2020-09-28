@@ -32,9 +32,7 @@ export class ProductsComponent implements OnInit {
    }
 
    async ngOnInit(){
-    this.cart$ = await this.shoppingCartService.getCart();
-    console.log(this.cart$);
-                    
+    this.cart$ = await this.shoppingCartService.getCart();                    
     this.populateProducts();
                     
    }
