@@ -6,7 +6,7 @@ import { ShoppingCartService } from '../../../shared/services/shopping-cart.serv
 @Component({
   selector: 'app-check-out',
   templateUrl: './check-out.component.html',
-  styleUrls: ['./check-out.component.css']
+  styleUrls: ['./check-out.component.scss']
 })
 export class CheckOutComponent implements OnInit{
 

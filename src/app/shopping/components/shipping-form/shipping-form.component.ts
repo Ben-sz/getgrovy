@@ -9,7 +9,7 @@ import { OrderService } from '../../../shared/services/order.service';
 @Component({
   selector: 'shipping-form',
   templateUrl: './shipping-form.component.html',
-  styleUrls: ['./shipping-form.component.css']
+  styleUrls: ['./shipping-form.component.scss']
 })
 export class ShippingFormComponent implements OnInit, OnDestroy{
 

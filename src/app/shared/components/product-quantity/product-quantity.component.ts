@@ -6,7 +6,7 @@ import { Product } from '../../models/products';
 @Component({
   selector: 'product-quantity',
   templateUrl: './product-quantity.component.html',
-  styleUrls: ['./product-quantity.component.css']
+  styleUrls: ['./product-quantity.component.scss']
 })
 export class ProductQuantityComponent{
   @Input ('product') product: Product;
