@@ -134,6 +134,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "getgrovy"
+    }
+  },
+  "defaultProject": "getgrovy",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
